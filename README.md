@@ -4,7 +4,7 @@ A dashboard to manage several social media platforms in one place.
 
 ### Dashboard Mockup
 
-[Imgur](http://i.imgur.com/i0T5Y0k.png)
+![Imgur](http://i.imgur.com/i0T5Y0k.png)
 
 ### User Stories
 
