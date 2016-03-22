@@ -1,10 +1,10 @@
-###### Social Media Dashboard
+# Social Media Dashboard
 
 A dashboard to manage several social media platforms in one place.
 
-##### User Stories
+#### User Stories
 
-### MVP 1
+#### MVP 1
 
 ```
 As a User,
@@ -35,7 +35,7 @@ As a User,
 So that I only have to login once,
 I’d like to have a single sign-on for all of my accounts
 ```
-### MVP 2
+#### MVP 2
 
 ```
 As a User,
@@ -46,7 +46,7 @@ As a User,
 So that I share my thoughts on Twitter without leaving my dashboard,
 I’d like to post to my Twitter feed directly from my dashboard.
 ```
-### MVP 3
+#### MVP 3
 
 ```
 As a User,
@@ -66,7 +66,7 @@ So that I can choose what information to view,
 I’d like to be able to select between streams (e.g. tiles) on a menu page.
 ```
 
-### MVP 4
+#### MVP 4
 
 ```
 As a User,
@@ -78,7 +78,7 @@ So that I chat directly on Twitter without leaving my dashboard,
 I’d like to post to my Twitter messages directly from my dashboard.
 ```
 
-### MVP 5
+#### MVP 5
 
 ```
 As a User,
