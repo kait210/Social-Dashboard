@@ -142,6 +142,17 @@ So that my dashboard looks unified across all social media channels,
 I’d like a cohesive look for the whole dashboard
 ```
 
+### Proposed Technologies
+
+  * [Anglular JS](https://angularjs.org/)
+  * [Node JS](https://nodejs.org/en/)
+  * [Express](http://expressjs.com/)
+
+##### Possible Technologies
+
+  * [MongoDB](https://www.mongodb.org/)   
+  * [Ruby on Rails](http://rubyonrails.org/)
+
 #### Created by
   * [Kait Beaudette](https://github.com/katie210)
   * [Mat Drake](https://github.com/MatDrake)
