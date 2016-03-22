@@ -148,12 +148,12 @@ I’d like a cohesive look for the whole dashboard
   * [Node JS](https://nodejs.org/en/)
   * [Express](http://expressjs.com/)
 
-##### Possible Technologies
+#### Possible Technologies
 
   * [MongoDB](https://www.mongodb.org/)   
   * [Ruby on Rails](http://rubyonrails.org/)
 
-#### Created by
+### Created by
   * [Kait Beaudette](https://github.com/katie210)
   * [Mat Drake](https://github.com/MatDrake)
   * [Elaine Finn](https://github.com/Finble)
