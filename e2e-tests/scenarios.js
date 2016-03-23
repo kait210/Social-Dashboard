@@ -1,11 +1,19 @@
 'use strict';
 
-describe('my app', function() {
+describe('Social Dashboard', function() {
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
+  it('should be able to authenticate a Twitter account', function() {
     browser.get('index.html');
-    expect(browser.getLocationAbsUrl()).toMatch("/");
+    element(by.id('twitter-auth')).click();
+
+    browser.getAllWindowHandles().then(function (handles) {  browser.switchTo().window(handles[1]);
+    element(by.id('username_or_email')).sendKeys('dashboardronin');
+    element(by.id('password')).sendKeys('dashboardteam');
+    element(by.id('allow')).click();
+    browser.switchTo().window(handles[0]);});
+
+    expect(element(by.id('alertMessage')).getText()).toEqual('Twitter authentication successful!')
   });
 
 

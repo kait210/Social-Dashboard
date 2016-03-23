@@ -13,14 +13,18 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="bower_components/oauth-js/dist/oauth.js"></script>
 </head>
 <body>
 
-  <div ng-view></div>
+  <div ng-controller='TwitterController'>
+    <p id='alertMessage'>{{alertMessage}}</p>
+    <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
+  </div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
+  <script src="controllers/twitter_controller.js"></script>
 </body>
 </html>
