@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "socialDashboard",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "A social media dashboard",
+  "repository": "https://github.com/katie210/Social-Dashboard",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
