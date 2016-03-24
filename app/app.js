@@ -1,10 +1,9 @@
 'use strict';
 
-// var dotenv = require('dotenv');
-
 angular.module('socialDashboard', [
   'ngRoute',
-  'TwitterController'
+  'TwitterController',
+  'config'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
