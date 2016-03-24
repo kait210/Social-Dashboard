@@ -7,6 +7,7 @@ socialDashboard.controller('TwitterController', function($scope) {
     OAuth.popup('twitter')
     .done(function(result) {
       $scope.alertMessage = 'Twitter authentication successful!'
+      $scope.$apply();
     })
     .fail(function (err) {
       $scope.alertMessage = 'Twitter authentication unsuccessful!'
