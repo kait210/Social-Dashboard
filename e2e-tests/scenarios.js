@@ -7,9 +7,12 @@ describe('Social Dashboard', function() {
     protractor.loginHelpers.loginToTwitter()
     browser.sleep(2000);
     expect(element(by.id('alertMessage')).getText()).toEqual('Twitter authentication successful!')
-   });
+  });
 
-   it('displays tweets', function() {
-     expect(element(by.id('tweets')))
-   });
+  it('displays tweets', function() {
+    element(by.id('get-tweets')).click();
+    browser.sleep(6000);
+    var tweetList = element.all(by.repeater('tweet in tweets'));
+    expect(tweetList.count()).toBe(20);
+  });
 });

@@ -21,10 +21,15 @@
   <script src="controllers/twitter_controller.js"></script>
 </head>
 <body>
-
   <div ng-controller='TwitterController'>
     <p id='alertMessage'>{{alertMessage}}</p>
     <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
+    <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
+
+   <ul>
+     <li ng-repeat="tweet in tweets">
+       <p id="{{tweet.id}}">{{tweet.text}}</p>
+   </ul>
   </div>
 
 
