@@ -26,9 +26,11 @@
     <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
     <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
 
-   <ul>
-     <li ng-repeat="tweet in tweets">
-       <p id="{{tweet.id}}">{{tweet.text}}</p>
+  <ul>
+    <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
+      <p class='created-at'>{{tweet.created_at}}</p>
+      <p>{{tweet.text}}</p>
+    </li>
    </ul>
   </div>
 
