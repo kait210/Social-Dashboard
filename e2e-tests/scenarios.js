@@ -24,4 +24,38 @@ describe('Social Dashboard', function() {
     var tweetList = element.all(by.repeater('tweet in tweets'));
     expect(tweetList.count()).toBe(20);
   });
+
+  
+
+  it('displays links within feeds', function() {
+    element(by.id('get-tweets')).click();
+    browser.sleep(6000);   
+    element.all(by.repeater('tweet in tweets')).then(function(tweets){
+        var tweet = tweets[0].element(by.className('url')); 
+        // var tweetPossibleUrl = tweet.isNotNull;
+
+        console.log('got to here!');
+
+    tweet.isDisplayed().then(function(result){
+      if(result) {
+        console.log('url present');
+        expect(tweet.getText()).toContain('https://');
+        }
+      else {
+        console.log('there are no URLs');
+        }
+      });
+    });
+  });
 });
+  
+
+    // it('displays images within feeds', function() {
+    // element(by.id('get-tweets')).click();
+    // browser.sleep(6000);
+    // element.all(by.repeater('tweet in tweets')).then(function(tweets){
+    //     var tweet = tweets[0].element(by.className('created-at'));
+    // expect(tweet.getText()).toContain(2016);
+    // });
+  // });
+
