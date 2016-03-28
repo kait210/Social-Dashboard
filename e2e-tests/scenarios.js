@@ -49,17 +49,27 @@ describe('Social Dashboard', function() {
   element.all(by.repeater('tweet in tweets')).then(function(tweets){
       var tweet = tweets[0].element(by.className('media')); 
 
-  tweet.isDisplayed().then(function(result){
-    if(result) {
-      console.log('media present');
-      expect(tweet.getText()).toContain('https://');
-      }
-    else {
-      console.log('there is no media');
-      }
+      tweet.isDisplayed().then(function(result){
+        if(result) {
+          console.log('media present');
+          expect(tweet.getText()).toContain('https://');
+        }
+        else {
+          console.log('there is no media');
+        }
+      });
     });
   });
+
+  it('displays the user who posted the tweet', function() {
+    element(by.id('get-tweets')).click();
+    browser.sleep(6000);
+    element.all(by.repeater('tweet in tweets')).then(function(tweets){
+        var tweet = tweets[0].element(by.className('user'));
+    expect(tweet.getText()).toBeTruthy();
+    });
   });
+
 });
   
 

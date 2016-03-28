@@ -32,6 +32,7 @@
       <p>{{tweet.text}}</p>
       <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
       <p class='media' ng-if="tweet.entities.media[0].media_url_https">{{tweet.entities.media[0].media_url_https}}></p>
+      <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}></p>
     </li>
    </ul>
   </div>
