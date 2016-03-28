@@ -25,21 +25,16 @@ describe('Social Dashboard', function() {
     expect(tweetList.count()).toBe(20);
   });
 
-  
-
   it('displays links within feeds', function() {
     element(by.id('get-tweets')).click();
     browser.sleep(6000);   
     element.all(by.repeater('tweet in tweets')).then(function(tweets){
-        var tweet = tweets[0].element(by.className('url')); 
-        // var tweetPossibleUrl = tweet.isNotNull;
-
-        console.log('got to here!');
+        var tweet = tweets[0].element(by.className('url'));
 
     tweet.isDisplayed().then(function(result){
       if(result) {
         console.log('url present');
-        expect(tweet.getText()).toContain('https://');
+        expect(tweet.getText()).toContain('Click link');
         }
       else {
         console.log('there are no URLs');
@@ -47,15 +42,25 @@ describe('Social Dashboard', function() {
       });
     });
   });
+
+  it('displays media (photos and videos) within feeds', function() {
+  element(by.id('get-tweets')).click();
+  browser.sleep(6000);   
+  element.all(by.repeater('tweet in tweets')).then(function(tweets){
+      var tweet = tweets[0].element(by.className('media')); 
+
+  tweet.isDisplayed().then(function(result){
+    if(result) {
+      console.log('media present');
+      expect(tweet.getText()).toContain('https://');
+      }
+    else {
+      console.log('there is no media');
+      }
+    });
+  });
+  });
 });
   
 
-    // it('displays images within feeds', function() {
-    // element(by.id('get-tweets')).click();
-    // browser.sleep(6000);
-    // element.all(by.repeater('tweet in tweets')).then(function(tweets){
-    //     var tweet = tweets[0].element(by.className('created-at'));
-    // expect(tweet.getText()).toContain(2016);
-    // });
-  // });
 

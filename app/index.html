@@ -30,7 +30,8 @@
     <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
       <p class='created-at'>{{tweet.created_at}}</p>
       <p>{{tweet.text}}</p>
-      <p class='url' ng-if="tweet.entities.urls[0].url">{{tweet.entities.urls[0].url}}</p>
+      <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
+      <p class='media' ng-if="tweet.entities.media[0].media_url_https">{{tweet.entities.media[0].media_url_https}}></p>
     </li>
    </ul>
   </div>
