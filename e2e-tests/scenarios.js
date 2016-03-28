@@ -15,4 +15,10 @@ describe('Social Dashboard', function() {
     var tweetList = element.all(by.repeater('tweet in tweets'));
     expect(tweetList.count()).toBe(20);
   });
+
+   it('posts a message to Twitter', function(){
+    var tweetList = element.all(by.repeater('tweet in tweets'));
+    element(by.id('post-tweet')).sendKeys('This is a feauture test!');
+    element(by.id('post-tweet-submit')).click();
+   })
 });
