@@ -12,6 +12,26 @@ socialDashboard.controller('FacebookController', [ '$scope','ENV', function($sco
     });
   }
 
+  $scope.postStatus = function(post) {
+    OAuth.popup('facebook')
+    .done(function(result) {
+      result.post('/me/feed', {
+        data: {
+          message: post
+        }
+      })
+      .done(function (response) {
+        $scope.getPosts()
+      })
+      .fail(function (err) {
+        console.log(err)
+      });
+    })
+    .fail(function (err) {
+      console.log(err)
+    })
+  }
+
   $scope.getPosts = function() {
     OAuth.popup('facebook', {cache: true})
     .done(function(result) {

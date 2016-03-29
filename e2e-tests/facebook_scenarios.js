@@ -9,13 +9,22 @@ describe('Facebook Integration', function() {
     expect(element(by.id('fb-alertMessage')).getText()).toEqual('Facebook authentication successful!')
   });
 
+  it('posts a status to Facebook', function(){
+    var id = Math.floor((Math.random() * 1000) + 1);
+    element(by.id('post-status')).sendKeys('This is the ' + id + ' feature test');
+    element(by.id('post-status-submit')).click();
+    browser.sleep(5000);
+    element.all(by.repeater('post in posts')).then(function(posts) {
+      var postStatus = posts[0].element(by.className('post-display'));
+      expect(postStatus.getText()).toContain('This is the ' + id + ' feature test');
+    });
+  })
+
     it('displays posts', function() {
     element(by.id('get-posts')).click();
     browser.sleep(6000);
     var postList = element.all(by.repeater('post in posts'));
-    expect(postList.count()).toBe(21);
+    var postsListStatus = postList.isDisplayed()
+    expect(postsListStatus).toBeTruthy();
   });
 });
-  
-
-

@@ -2,7 +2,7 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    'facebook_scenarios.js'
+    '*.js'
   ],
 
   capabilities: {
