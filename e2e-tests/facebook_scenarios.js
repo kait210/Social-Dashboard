@@ -13,9 +13,8 @@ describe('Facebook Integration', function() {
     element(by.id('get-posts')).click();
     browser.sleep(6000);
     var postList = element.all(by.repeater('post in posts'));
-    expect(postList.count()).toBe(20);
+    expect(postList.count()).toBe(21);
   });
-
 });
   
 
