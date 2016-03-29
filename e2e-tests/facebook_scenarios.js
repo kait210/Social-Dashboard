@@ -27,4 +27,13 @@ describe('Facebook Integration', function() {
     var postsListStatus = postList.isDisplayed()
     expect(postsListStatus).toBeTruthy();
   });
+
+    it('display the provider of the messages', function(){
+    element(by.id('get-posts')).click();
+    browser.sleep(6000);
+    element.all(by.repeater('post in posts')).then(function(posts) {
+      var postMessage = posts[0].element(by.className('post-provider'));
+      expect(postMessage.getText()).toEqual('Provided by Facebook');
+    });
+  })
 });
