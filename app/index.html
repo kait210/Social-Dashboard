@@ -47,6 +47,13 @@
   <div ng-controller='FacebookController'>
     <p id='fb-alertMessage'>{{alertMessage}}</p>
     <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
+    <a href='#' id='get-posts' ng-click='getPosts()'>Get my FB Posts</a>
+
+    <ul id='post-list'>
+      <li ng-repeat="post in posts" id="{{post.id}}">
+        <p class='created-at'>{{post.created_at}}</p>
+        <p class="post-display">{{post.message}}</p>       
+      </li>
   </div>
 
 </body>

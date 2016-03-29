@@ -9,6 +9,12 @@ describe('Facebook Integration', function() {
     expect(element(by.id('fb-alertMessage')).getText()).toEqual('Facebook authentication successful!')
   });
 
+    it('displays posts', function() {
+    element(by.id('get-posts')).click();
+    browser.sleep(6000);
+    var postList = element.all(by.repeater('post in posts'));
+    expect(postList.count()).toBe(21);
+  });
 });
   
 
