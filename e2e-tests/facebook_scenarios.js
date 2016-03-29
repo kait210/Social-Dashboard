@@ -20,4 +20,11 @@ describe('Facebook Integration', function() {
     });
   })
 
+    it('displays posts', function() {
+    element(by.id('get-posts')).click();
+    browser.sleep(6000);
+    var postList = element.all(by.repeater('post in posts'));
+    var postsListStatus = postList.isDisplayed()
+    expect(postsListStatus).toBeTruthy();
+  });
 });

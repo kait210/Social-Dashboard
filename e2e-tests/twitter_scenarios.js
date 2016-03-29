@@ -58,13 +58,13 @@ describe('Twitter Integration', function() {
       expect(tweet.getText()).toContain('Click link');
       });
     });
-  });
+
 
   it('displays media (photos and videos) within feeds', function() {
     element(by.id('get-tweets')).click();
     browser.sleep(6000);
     element.all(by.repeater('tweet in tweets')).then(function(tweets){
-      var tweet = tweets[0].element(by.className('media')).isDisplayed();
+      var tweet = tweets[0].element(by.className('media')).isPresent();
 
       tweet.then(function(result){
         if(result) {
@@ -77,7 +77,7 @@ describe('Twitter Integration', function() {
         }
       });
     });
-  });
+  })
 
   it('displays the user who posted the tweet', function() {
     element(by.id('get-tweets')).click();
