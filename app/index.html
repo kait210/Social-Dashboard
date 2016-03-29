@@ -14,18 +14,29 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/oauth-js/dist/oauth.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/twitter_controller.js"></script>
 </head>
 <body>
-  
   <div ng-controller='TwitterController'>
     <p id='alertMessage'>{{alertMessage}}</p>
     <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
+    <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
+
+  <ul>
+    <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
+      <p class='created-at'>{{tweet.created_at}}</p>
+      <p>{{tweet.text}}</p>
+      <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
+      <div class='media'> <img ng-if="tweet.entities.media[0].media_url_https" src="{{tweet.entities.media[0].media_url_https}}"></div>
+      <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}></p>
+    </li>
+   </ul>
   </div>
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="config.js"></script>
-  <script src="controllers/twitter_controller.js"></script>
+
 </body>
 </html>
