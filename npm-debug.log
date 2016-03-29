@@ -4,12 +4,12 @@
 1 verbose cli   'run',
 1 verbose cli   'protractor' ]
 2 info using npm@3.6.0
-3 info using node@v5.6.0
+3 info using node@v5.7.1
 4 verbose run-script [ 'preprotractor', 'protractor', 'postprotractor' ]
 5 info lifecycle socialDashboard@0.0.0~preprotractor: socialDashboard@0.0.0
 6 verbose lifecycle socialDashboard@0.0.0~preprotractor: unsafe-perm in lifecycle true
-7 verbose lifecycle socialDashboard@0.0.0~preprotractor: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/lewisroberts/Projects/Social-Dashboard/node_modules/.bin:/Users/lewisroberts/.rvm/gems/ruby-2.2.1/bin:/Users/lewisroberts/.rvm/gems/ruby-2.2.1@global/bin:/Users/lewisroberts/.rvm/rubies/ruby-2.2.1/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/lewisroberts/.rvm/bin
-8 verbose lifecycle socialDashboard@0.0.0~preprotractor: CWD: /Users/lewisroberts/Projects/Social-Dashboard
+7 verbose lifecycle socialDashboard@0.0.0~preprotractor: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/Mat/Projects/Social-Dashboard/node_modules/.bin:/Users/Mat/.rvm/gems/ruby-2.2.1/bin:/Users/Mat/.rvm/gems/ruby-2.2.1@global/bin:/Users/Mat/.rvm/rubies/ruby-2.2.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Mat/.rvm/bin
+8 verbose lifecycle socialDashboard@0.0.0~preprotractor: CWD: /Users/Mat/Projects/Social-Dashboard
 9 silly lifecycle socialDashboard@0.0.0~preprotractor: Args: [ '-c', 'npm run update-webdriver' ]
 10 silly lifecycle socialDashboard@0.0.0~preprotractor: Returned: code: 0  signal: null
 11 info lifecycle socialDashboard@0.0.0~protractor: socialDashboard@0.0.0
