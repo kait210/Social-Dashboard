@@ -2,8 +2,7 @@
 
 var socialDashboard = angular.module('socialDashboard', [
   'ngRoute',
-  'TwitterController',
-  'FacebookController'
+  'config'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
