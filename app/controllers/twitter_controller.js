@@ -1,5 +1,3 @@
-var socialDashboard = angular.module('socialDashboard', ['config']);
-
 socialDashboard.controller('TwitterController', [ '$scope','ENV', function($scope, ENV) {
   OAuth.initialize(ENV.oauthKey);
 
@@ -20,7 +18,6 @@ socialDashboard.controller('TwitterController', [ '$scope','ENV', function($scop
       result.get('/1.1/statuses/home_timeline.json')
       .done(function (response) {
         $scope.tweets = response;
-        console.log($scope.tweets)
         $scope.$apply();
       })
       .fail(function (err) {
