@@ -73,10 +73,9 @@
     <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
     <ul id='post-list'>
       <li ng-repeat="photo in photos" id="{{photo.id}}">
-        <!-- p class='created-at'>{{post.created_time}}</p> -->
         <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
-                <!-- <p class="post-provider">Provided by {{post.provider}}</p>
-        <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a> --> 
+        <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
+        <p class="photo-provider">Provided by {{photo.provider}}</p>
       </li>
     </ul>
   </div>

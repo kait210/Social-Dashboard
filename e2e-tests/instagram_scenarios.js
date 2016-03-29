@@ -22,4 +22,22 @@ describe('Instagram Integration', function() {
     var photoList = element.all(by.repeater('photo in photos'));
     expect(photoList.count()).toBe(3);
   });
+
+  it('displays the user who posted the photo', function() {
+    element(by.id('get-photos')).click();
+    browser.sleep(6000);
+    element.all(by.repeater('photo in photos')).then(function(photos){
+      var photo = photos[0].element(by.className('user'));
+      expect(photo.getText()).toBeTruthy();
+    });
+  });
+
+  it('display the provider of the photos', function(){
+    element(by.id('get-photos')).click();
+    browser.sleep(6000);
+    element.all(by.repeater('photo in photos')).then(function(photos) {
+      var photoMessage = photos[0].element(by.className('photo-provider'));
+      expect(photoMessage.getText()).toEqual('Provided by Instagram');
+    });
+  })
 });
