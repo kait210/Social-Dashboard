@@ -22,7 +22,6 @@ socialDashboard.controller('TwitterController', [ '$scope','ENV', function($scop
         response.forEach(function(tweet) {
           tweet.provider = 'Twitter'
         })
-        console.log(response[0])
         $scope.tweets = response;
         $scope.$apply();
       })
