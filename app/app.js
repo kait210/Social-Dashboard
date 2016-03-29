@@ -2,7 +2,7 @@
 
 angular.module('socialDashboard', [
   'ngRoute',
-  'TwitterController' 
+  'TwitterController'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
