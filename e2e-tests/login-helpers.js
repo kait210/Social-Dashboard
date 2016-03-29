@@ -29,3 +29,16 @@ exports.loginToFacebook = function () {
   });
 }
 
+exports.loginToInstagram = function () {
+  element(by.id('instagram-auth')).click();
+
+  browser.getAllWindowHandles().then(function (handles) {
+    browser.switchTo().window(handles[1]);
+    browser.driver.findElement(By.id('id_username')).sendKeys('socialdashboardronin');
+    browser.driver.findElement(By.id('id_password')).sendKeys('dashboardteam');
+    browser.driver.findElement(By.css('.button-green')).click();
+
+    browser.switchTo().window(handles[0]);
+  });
+}
+

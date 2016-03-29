@@ -20,6 +20,7 @@
   <script src="app.js"></script>
   <script src="controllers/twitter_controller.js"></script>
   <script src="controllers/facebook_controller.js"></script>
+  <script src="controllers/instagram_controller.js"></script>
 </head>
 <body>
   <div ng-controller='TwitterController'>
@@ -62,8 +63,12 @@
         <p class="post-display">{{post.message}}</p>
         <p class="post-provider">Provided by {{post.provider}}</p>
         <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a>
-
       </li>
+  </div>
+
+  <div ng-controller='InstagramController'>
+    <p id='ig-alertMessage'>{{alertMessage}}</p>
+    <a href='#' id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
   </div>
 
 </body>
