@@ -7,3 +7,4 @@ tmp
 .idea
 config.js
 Gruntfile.js
+npm-debug-log
