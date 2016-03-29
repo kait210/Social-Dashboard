@@ -39,6 +39,9 @@ socialDashboard.controller('FacebookController', [ '$scope','ENV', function($sco
       result.get('/me/feed')
       .done(function (response) {
         console.log(response.data)
+        response.data.forEach(function(post) {
+        post.provider = 'Facebook'
+      })
         $scope.posts = response.data;
         $scope.$apply();
       })

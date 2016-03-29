@@ -58,8 +58,11 @@
 
     <ul id='post-list'>
       <li ng-repeat="post in posts" id="{{post.id}}">
-        <p class='created-at'>{{post.created_at}}</p>
+        <p class='created-at'>{{post.created_time}}</p>
         <p class="post-display">{{post.message}}</p>
+        <p class="post-provider">Provided by {{post.provider}}</p>
+        <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a>
+
       </li>
   </div>
 
