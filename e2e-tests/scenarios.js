@@ -52,7 +52,7 @@ describe('Social Dashboard', function() {
       tweet.isDisplayed().then(function(result){
         if(result) {
           console.log('media present');
-          expect(tweet.getText()).toContain('https://');
+          expect(tweet.isPresent()).toBe(true);
         }
         else {
           console.log('there is no media');
