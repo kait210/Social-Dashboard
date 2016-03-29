@@ -52,6 +52,7 @@ describe('Social Dashboard', function() {
       tweet.isDisplayed().then(function(result){
         if(result) {
           console.log('media present');
+          var tweet = tweets[0].element(by.tagName('img')); 
           expect(tweet.isPresent()).toBe(true);
         }
         else {

@@ -31,7 +31,7 @@
       <p class='created-at'>{{tweet.created_at}}</p>
       <p>{{tweet.text}}</p>
       <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
-      <img class='media' ng-if="tweet.entities.media[0].media_url_https" src="{{tweet.entities.media[0].media_url_https}}">
+      <div class='media'> <img ng-if="tweet.entities.media[0].media_url_https" src="{{tweet.entities.media[0].media_url_https}}"></div>
       <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}></p>
     </li>
    </ul>
