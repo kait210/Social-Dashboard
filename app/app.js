@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('socialDashboard', [
+var socialDashboard = angular.module('socialDashboard', [
   'ngRoute',
-  'TwitterController' 
+  'TwitterController',
+  'FacebookController'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
