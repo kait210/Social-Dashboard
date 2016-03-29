@@ -26,7 +26,14 @@
     <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
     <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
 
-   <ul>
+    <form id="tweet_form" ng-submit="postTweets(field)">
+        <label for "Tweet">Tweet: </label>
+        <input id="post-tweet" type="text" name="field" ng-model="field"> </input>
+        <input id="post-tweet-submit" type="submit" value='Tweet'></input>
+    </form>
+
+
+   <ul id='tweet-list'>
      <li id="{{tweet.id}}" ng-repeat="tweet in tweets">
        <p class="tweet-display">{{tweet.text}}</p>
     </li>
