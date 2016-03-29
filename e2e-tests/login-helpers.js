@@ -15,3 +15,17 @@ exports.validateEmail = function () {
     browser.driver.findElement(By.id('email_challenge_submit')).click();
   });
 }
+
+exports.loginToFacebook = function () {
+  element(by.id('facebook-auth')).click();
+
+  browser.getAllWindowHandles().then(function (handles) {
+    browser.switchTo().window(handles[1]);
+    browser.driver.findElement(By.id('email')).sendKeys('socialdashboardronin@gmail.com');
+    browser.driver.findElement(By.id('pass')).sendKeys('dashboardteam');
+    browser.driver.findElement(By.id('loginbutton')).click();
+
+    browser.switchTo().window(handles[0]);
+  });
+}
+

@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Social Dashboard', function() {
+describe('Twitter Integration', function() {
 
   it('should be able to authenticate a Twitter account', function() {
     browser.get('index.html');
-    protractor.loginHelpers.loginToTwitter()
+    protractor.loginHelpers.loginToTwitter();
     browser.sleep(5000);
     browser.getAllWindowHandles().then(function (handles) {
       if (handles.length === 2) {

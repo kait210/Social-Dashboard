@@ -19,6 +19,7 @@
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script src="controllers/twitter_controller.js"></script>
+  <script src="controllers/facebook_controller.js"></script>
 </head>
 <body>
   <div ng-controller='TwitterController'>
@@ -26,13 +27,11 @@
     <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
     <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
 
-
     <form id="tweet_form" ng-submit="postTweets(field)">
       <label for "Tweet">Tweet: </label>
       <input id="post-tweet" type="text" name="field" ng-model="field"> </input>
       <input id="post-tweet-submit" type="submit" value='Tweet'></input>
     </form>
-
 
     <ul id='tweet-list'>
       <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
@@ -45,7 +44,10 @@
       </li>
     </ul>
   </div>
-
+  <div ng-controller='FacebookController'>
+    <p id='fb-alertMessage'>{{alertMessage}}</p>
+    <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
+  </div>
 
 </body>
 </html>

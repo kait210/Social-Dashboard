@@ -1,5 +1,3 @@
-var socialDashboard = angular.module('socialDashboard', ['config']);
-
 socialDashboard.controller('TwitterController', [ '$scope','ENV', function($scope, ENV) {
   OAuth.initialize(ENV.oauthKey);
 
