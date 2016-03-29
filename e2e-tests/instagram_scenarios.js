@@ -15,4 +15,11 @@ describe('Instagram Integration', function() {
     browser.sleep(2000);
     expect(element(by.id('ig-alertMessage')).getText()).toEqual('Instagram authentication successful!')
   });
+
+  it('displays photos', function() {
+    element(by.id('get-photos')).click();
+    browser.sleep(6000);
+    var photoList = element.all(by.repeater('photo in photos'));
+    expect(photoList.count()).toBe(3);
+  });
 });
