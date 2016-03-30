@@ -19,9 +19,19 @@ socialDashboard.controller('UserController', [ '$scope','ENV', function($scope, 
   }
 
   $scope.signIn = function(email,password) {
-    User.signin(email, password).done(function(user) {
+    User.signin(email, password
+    ).done(function(user) {
       var name = user.data.firstname
-      $scope.signInMessage = 'Welcome ' + name + ', sign in successful!'
+      $scope.accountMessage = 'Welcome ' + name + ', sign in successful!'
+      $scope.$apply();
+    });
+  }
+
+  $scope.signOut = function() {
+    var user = User.getIdentity();
+    user.logout().done(function() {
+      var name = user.data.firstname
+      $scope.accountMessage = 'Goodbye ' + name + ', sign out successful!'
       $scope.$apply();
     });
   }

@@ -8,6 +8,6 @@ describe('User login', function(){
     element(by.id('login-password')).sendKeys('Dashboardteam1');
     element(by.id('sign-in-submit')).click();
     browser.sleep(5000);
-    expect(element(by.id('signInMessage')).getText()).toEqual('Welcome Ronin, sign in successful!')
+    expect(element(by.id('accountMessage')).getText()).toEqual('Welcome Ronin, sign in successful!')
   });
 });

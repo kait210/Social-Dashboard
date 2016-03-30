@@ -2,7 +2,8 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    'user_login_scenario.js'
+    'user_login_scenario.js',
+    'user_logout_scenario.js'
   ],
 
   capabilities: {
