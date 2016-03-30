@@ -21,6 +21,7 @@
   <script src="controllers/twitter_controller.js"></script>
   <script src="controllers/facebook_controller.js"></script>
   <script src="controllers/instagram_controller.js"></script>
+  <script src="controllers/gmail_controller.js"></script>
 </head>
 <body>
   <div ng-controller='TwitterController'>
@@ -76,6 +77,22 @@
         <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
         <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
         <p class="photo-provider">Provided by {{photo.provider}}</p>
+      </li>
+    </ul>
+  </div>
+
+    <div ng-controller='GmailController'>
+    <p id='gm-alertMessage'>{{alertMessage}}</p>
+    <a href='#' id='gmail-auth' ng-click='gmailAuth()'>Log-in with Gmail</a>
+  <ul id='message-list'>
+      <li ng-repeat="message in messages" id="{{message.id}}">
+      <a href='#' id='get-messages' ng-click='getMessages()'>Get my Messages</a>
+        <!-- <p class='created-at'>{{tweet.created_at}}</p>
+        <p class="tweet-display">{{tweet.text}}</p>
+        <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
+        <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
+        <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}</p>
+        <p class="tweet-provider">Provided by {{tweet.provider}}</p> -->
       </li>
     </ul>
   </div>

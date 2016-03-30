@@ -17,7 +17,6 @@ socialDashboard.controller('InstagramController', [ '$scope','ENV', function($sc
     .done(function(result) {
       result.get('/v1/users/self/media/recent')
       .done(function (response) {
-        console.log(response)
         response.data.forEach(function(photo) {
           photo.provider = 'Instagram'
         })
