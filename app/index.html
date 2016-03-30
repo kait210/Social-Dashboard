@@ -84,12 +84,15 @@
     <div ng-controller='GmailController'>
     <p id='gm-alertMessage'>{{alertMessage}}</p>
     <a href='#' id='gmail-auth' ng-click='gmailAuth()'>Log-in with Gmail</a>
-  <!--   <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
-    <ul id='post-list'>
-      <li ng-repeat="photo in photos" id="{{photo.id}}">
-        <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
-        <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
-        <p class="photo-provider">Provided by {{photo.provider}}</p> -->
+  <ul id='message-list'>
+      <li ng-repeat="message in messages" id="{{message.id}}">
+      <a href='#' id='get-messages' ng-click='getMessages()'>Get my Messages</a>
+        <!-- <p class='created-at'>{{tweet.created_at}}</p>
+        <p class="tweet-display">{{tweet.text}}</p>
+        <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
+        <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
+        <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}</p>
+        <p class="tweet-provider">Provided by {{tweet.provider}}</p> -->
       </li>
     </ul>
   </div>

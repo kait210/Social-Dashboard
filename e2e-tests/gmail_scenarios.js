@@ -15,4 +15,11 @@ describe('Gmail Integration', function() {
     browser.sleep(2000);
     expect(element(by.id('gm-alertMessage')).getText()).toEqual('Gmail authentication successful!')
   });
+
+  it('displays messages', function() {
+    element(by.id('get-messages')).click();
+    browser.sleep(6000);
+    var messageList = element.all(by.repeater('message in messages'));
+    expect(messageList.count()).toBe(20);
+  });
 });

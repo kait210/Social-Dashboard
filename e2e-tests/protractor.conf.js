@@ -2,7 +2,7 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    '*.js'
+    'gmail_scenarios.js'
   ],
 
   capabilities: {
