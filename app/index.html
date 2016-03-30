@@ -20,82 +20,93 @@
   <script src="app.js"></script>
   <script src="controllers/twitter_controller.js"></script>
   <script src="controllers/facebook_controller.js"></script>
+  <script src="controllers/user_controller.js"></script>
   <script src="controllers/instagram_controller.js"></script>
   <script src="controllers/gmail_controller.js"></script>
 </head>
 <body>
-  <div ng-controller='TwitterController'>
-    <p id='alertMessage'>{{alertMessage}}</p>
-    <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
-    <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
+  <div ng-controller="UserController">
+    <p id='userMessage'>{{userMessage}}</p>
+    <form id="register-user">
+      <input id="firstName", placeholder="First Name", required>
+      <input id="lastName", placeholder="Last Name", required>
+      <input id="email", placeholder="Email", required, type="email">
+      <input id="password", placeholder="Password", required, type="password">
+      <button id="submit" type="submit" ng-click="register()"> Register
+      </form>
+    </div>
+    <div ng-controller="UserController">
+      <p id='accountMessage'>{{accountMessage}}</p>
+      <form id="sign-in" ng-submit="signIn(email, password)">
+        <input id="login-email", placeholder="Email", required, type="email", ng-model="email" name="email"> </input>
+        <input id="login-password", placeholder="Password", required, type="password", ng-model="password" name="password"> </input>
+        <input id="sign-in-submit" type="submit" value='Sign in'></input>
+      </form>
+      <form id="sign-out">
+        <input id="sign-out-submit" type='submit' value='Sign out' ng-click='signOut()'></input>
+      </form>
+    </div>
+    <div ng-controller='TwitterController'>
+      <p id='alertMessage'>{{alertMessage}}</p>
+      <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
+      <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
 
-    <form id="tweet_form" ng-submit="postTweets(field)">
-      <label for "Tweet">Tweet: </label>
-      <input id="post-tweet" type="text" name="field" ng-model="field"> </input>
-      <input id="post-tweet-submit" type="submit" value='Tweet'></input>
-    </form>
+      <form id="tweet_form" ng-submit="postTweets(field)">
+        <label for "Tweet">Tweet: </label>
+        <input id="post-tweet" type="text" name="field" ng-model="field"> </input>
+        <input id="post-tweet-submit" type="submit" value='Tweet'></input>
+      </form>
 
-    <ul id='tweet-list'>
-      <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
-        <p class='created-at'>{{tweet.created_at}}</p>
-        <p class="tweet-display">{{tweet.text}}</p>
-        <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
-        <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
-        <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}</p>
-        <p class="tweet-provider">Provided by {{tweet.provider}}</p>
-      </li>
-    </ul>
-  </div>
+      <ul id='tweet-list'>
+        <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
+          <p class='created-at'>{{tweet.created_at}}</p>
+          <p class="tweet-display">{{tweet.text}}</p>
+          <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
+          <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
+          <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}</p>
+          <p class="tweet-provider">Provided by {{tweet.provider}}</p>
+        </li>
+      </ul>
+    </div>
 
-  <div ng-controller='FacebookController'>
-    <p id='fb-alertMessage'>{{alertMessage}}</p>
-    <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
+    <div ng-controller='FacebookController'>
+      <p id='fb-alertMessage'>{{alertMessage}}</p>
+      <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
 
-  <form id="status_form" ng-submit="postStatus(post)">
-    <label for "Status">Status: </label>
-    <input id="post-status" type="text" name="field" ng-model="post"> </input>
-    <input id="post-status-submit" type="submit" value='Post'></input>
-  </form>
-    <a href='#' id='get-posts' ng-click='getPosts()'>Get my FB Posts</a>
+      <form id="status_form" ng-submit="postStatus(post)">
+        <label for "Status">Status: </label>
+        <input id="post-status" type="text" name="field" ng-model="post"> </input>
+        <input id="post-status-submit" type="submit" value='Post'></input>
+      </form>
+      <a href='#' id='get-posts' ng-click='getPosts()'>Get my FB Posts</a>
 
-    <ul id='post-list'>
-      <li ng-repeat="post in posts" id="{{post.id}}">
-        <p class='created-at'>{{post.created_time}}</p>
-        <p class="post-display">{{post.message}}</p>
-        <p class="post-provider">Provided by {{post.provider}}</p>
-        <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a>
-      </li>
-    </ul>
-  </div>
+      <ul id='post-list'>
+        <li ng-repeat="post in posts" id="{{post.id}}">
+          <p class='created-at'>{{post.created_time}}</p>
+          <p class="post-display">{{post.message}}</p>
+          <p class="post-provider">Provided by {{post.provider}}</p>
+          <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a>
+        </li>
+      </ul>
+    </div>
 
-  <div ng-controller='InstagramController'>
-    <p id='ig-alertMessage'>{{alertMessage}}</p>
-    <a href='#' id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
-    <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
-    <ul id='post-list'>
-      <li ng-repeat="photo in photos" id="{{photo.id}}">
-        <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
-        <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
-        <p class="photo-provider">Provided by {{photo.provider}}</p>
-      </li>
-    </ul>
-  </div>
+    <div ng-controller='InstagramController'>
+      <p id='ig-alertMessage'>{{alertMessage}}</p>
+      <a href='#' id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
+      <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
+      <ul id='post-list'>
+        <li ng-repeat="photo in photos" id="{{photo.id}}">
+          <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
+          <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
+          <p class="photo-provider">Provided by {{photo.provider}}</p>
+        </li>
+      </ul>
+    </div>
 
     <div ng-controller='GmailController'>
-    <p id='gm-alertMessage'>{{alertMessage}}</p>
-    <a href='#' id='gmail-auth' ng-click='gmailAuth()'>Log-in with Gmail</a>
-  <ul id='message-list'>
-      <li ng-repeat="message in messages" id="{{message.id}}">
-      <a href='#' id='get-messages' ng-click='getMessages()'>Get my Messages</a>
-        <!-- <p class='created-at'>{{tweet.created_at}}</p>
-        <p class="tweet-display">{{tweet.text}}</p>
-        <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
-        <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
-        <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}</p>
-        <p class="tweet-provider">Provided by {{tweet.provider}}</p> -->
-      </li>
-    </ul>
-  </div>
+      <p id='gm-alertMessage'>{{alertMessage}}</p>
+      <a href='#' id='gmail-auth' ng-click='gmailAuth()'>Log-in with Gmail</a>
+    </div>
 
-</body>
-</html>
+  </body>
+  </html>

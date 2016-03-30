@@ -45,7 +45,7 @@ describe('Twitter Integration', function() {
     var id = Math.floor((Math.random() * 1000) + 1);
     element(by.id('post-tweet')).sendKeys('This is the ' + id + ' feature test' + ' http://test.com/');
     element(by.id('post-tweet-submit')).click();
-    browser.sleep(5000);
+    browser.sleep(8000);
     element.all(by.repeater('tweet in tweets')).then(function(tweets) {
       var tweetMessage = tweets[0].element(by.className('tweet-display'));
       expect(tweetMessage.getText()).toContain('This is the ' + id + ' feature test');
