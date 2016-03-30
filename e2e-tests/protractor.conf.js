@@ -2,7 +2,13 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    '*.js'
+    // 'user_registration_scenario.js', Only need to run once to avoid duplicate registration.
+    'user_login_scenario.js',
+    'gmail_scenarios.js',
+    'twitter_scenarios.js',
+    'instagram_scenarios.js',
+    'facebook_scenarios.js',
+    'user_logout_scenario.js'
   ],
 
   capabilities: {
