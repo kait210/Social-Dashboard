@@ -8,9 +8,7 @@ socialDashboard.controller('UserController', [ '$scope','ENV', function($scope, 
       email: document.getElementById('email').value,
       password: document.getElementById('password').value
     }).done(function(user) {
-      console.log(user)
       var name = user.data.firstname
-      console.log(name)
       $scope.userMessage = 'Welcome ' + name + ', registration successful!'
       $scope.$apply();
     }).fail(function(err) {
@@ -18,5 +16,13 @@ socialDashboard.controller('UserController', [ '$scope','ENV', function($scope, 
       $scope.$apply();
     });
     return false;
+  }
+
+  $scope.signIn = function(email,password) {
+    User.signin(email, password).done(function(user) {
+      var name = user.data.firstname
+      $scope.signInMessage = 'Welcome ' + name + ', sign in successful!'
+      $scope.$apply();
+    });
   }
 }]);

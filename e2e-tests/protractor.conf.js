@@ -2,7 +2,7 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    'user_registration_scenario.js'
+    'user_login_scenario.js'
   ],
 
   capabilities: {

@@ -11,5 +11,5 @@ describe('User account management', function(){
     element(by.id('submit')).click();
     browser.sleep(5000);
     expect(element(by.id('userMessage')).getText()).toEqual('Welcome Ronin, registration successful!')
-  })
-})
+  });
+});
