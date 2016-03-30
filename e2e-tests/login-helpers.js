@@ -42,3 +42,18 @@ exports.loginToInstagram = function () {
   });
 }
 
+exports.loginToGmail = function () {
+  element(by.id('gmail-auth')).click();
+
+  browser.getAllWindowHandles().then(function (handles) {
+    browser.switchTo().window(handles[1]);
+    browser.driver.findElement(By.id('Email')).sendKeys('socialdashboardronin');
+    browser.driver.findElement(By.id('next')).click();
+    browser.sleep(2000);
+    browser.driver.findElement(By.id('Passwd')).sendKeys('dashboardteam');
+    browser.driver.findElement(By.id('signIn')).click();
+    browser.switchTo().window(handles[0]);
+  });
+}
+
+

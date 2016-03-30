@@ -21,6 +21,7 @@
   <script src="controllers/twitter_controller.js"></script>
   <script src="controllers/facebook_controller.js"></script>
   <script src="controllers/instagram_controller.js"></script>
+  <script src="controllers/gmail_controller.js"></script>
 </head>
 <body>
   <div ng-controller='TwitterController'>
@@ -76,6 +77,19 @@
         <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
         <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
         <p class="photo-provider">Provided by {{photo.provider}}</p>
+      </li>
+    </ul>
+  </div>
+
+    <div ng-controller='GmailController'>
+    <p id='gm-alertMessage'>{{alertMessage}}</p>
+    <a href='#' id='gmail-auth' ng-click='gmailAuth()'>Log-in with Gmail</a>
+  <!--   <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
+    <ul id='post-list'>
+      <li ng-repeat="photo in photos" id="{{photo.id}}">
+        <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
+        <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
+        <p class="photo-provider">Provided by {{photo.provider}}</p> -->
       </li>
     </ul>
   </div>
