@@ -1,15 +1,8 @@
-socialDashboard.controller('InstagramController', [ '$scope','ENV', function($scope, ENV) {
+socialDashboard.controller('InstagramController', [ '$scope','ENV', 'AuthService', function($scope, ENV, AuthService) {
   OAuth.initialize(ENV.oauthKey);
 
   $scope.instagramAuth = function() {
-    OAuth.popup('instagram')
-    .done(function(result) {
-      $scope.alertMessage = 'Instagram authentication successful!'
-      $scope.$apply();
-    })
-    .fail(function (err) {
-      $scope.alertMessage = 'Instagram authentication unsuccessful!'
-    });
+     AuthService.authorize('instagram');
   }
 
   $scope.getPhotos = function() {

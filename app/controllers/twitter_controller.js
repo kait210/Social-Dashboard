@@ -1,15 +1,7 @@
-socialDashboard.controller('TwitterController', [ '$scope','ENV', function($scope, ENV) {
-  OAuth.initialize(ENV.oauthKey);
+socialDashboard.controller('TwitterController', [ '$scope','ENV','AuthService', '$rootScope', function($scope, ENV, AuthService, $rootScope) {
 
   $scope.twitterAuth = function() {
-    OAuth.popup('twitter')
-    .done(function(result) {
-      $scope.alertMessage = 'Twitter authentication successful!'
-      $scope.$apply();
-    })
-    .fail(function (err) {
-      $scope.alertMessage = 'Twitter authentication unsuccessful!'
-    });
+    AuthService.authorize('twitter');
   }
 
   $scope.getTweets = function() {
@@ -26,10 +18,8 @@ socialDashboard.controller('TwitterController', [ '$scope','ENV', function($scop
       .fail(function (err) {
         console.log(err)
       })
-      $scope.alertMessage = 'Twitter authentication successful!'
     })
     .fail(function (err) {
-      $scope.alertMessage = 'Twitter authentication unsuccessful!'
     });
   }
 
