@@ -1,8 +1,7 @@
 {
   "name": "socialDashboard",
   "description": "A social media dashboard",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "version": "https://github.com/katie210/Social-Dashboard",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -10,7 +9,7 @@
     "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
-    "html5-boilerplate": "~5.2.0",
-    "oauth-js": "oauthio-web#^0.5.2"
+    "oauth-js": "oauthio-web#^0.5.2",
+    "bootstrap": "^3.3.6"
   }
 }
