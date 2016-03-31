@@ -1,30 +1,14 @@
-socialDashboard.controller('FacebookController', [ '$scope','ENV','AuthService', function($scope, ENV, AuthService) {
+socialDashboard.controller('FacebookController', [ '$scope','ENV','AuthService','$rootScope', function($scope, ENV, AuthService, $rootScope) {
 
   $scope.facebookAuth = function() {
-    AuthService.authorize('facebook');
+    $scope.alertMessage = AuthService.authorize('facebook');
   }
 
   $scope.getPosts = function() {
-    AuthService.getMessages('facebook','/me/feed')
+    AuthService.getMessages('facebook','/me/feed');
   }
 
-  $scope.postStatus = function(post) {
-    OAuth.popup('facebook')
-    .done(function(result) {
-      result.post('/me/feed', {
-        data: {
-          message: post
-        }
-      })
-      .done(function (response) {
-        $scope.getPosts()
-      })
-      .fail(function (err) {
-        console.log(err)
-      });
-    })
-    .fail(function (err) {
-      console.log(err)
-    })
+  $scope.postStatus = function(field) {
+   AuthService.postMessage('facebook', '/me/feed', field);
   }
 }]);

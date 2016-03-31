@@ -1,7 +1,7 @@
 socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope, ENV) {
 
   this.authorize = function(provider) {
-   OAuth.initialize(ENV.oauthKey);
+    OAuth.initialize(ENV.oauthKey);
     OAuth.popup(provider)
     .done(function(result) {
       $rootScope.alertMessage = provider + ' authentication successful!'
@@ -10,6 +10,7 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
     .fail(function (err) {
       $scope.alertMessage = provider + ' authentication unsuccessful!'
     });
+    return $rootScope.alertMessage
   }
 
   this.getMessages = function(provider, route) {
@@ -17,26 +18,58 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
     .done(function(result) {
       result.get(route)
       .done(function (response) {
-        response.forEach(function(message) {
+      if (provider === 'twitter') {
+        response.forEach(function(message){
           message.provider = provider
-        })
-        if (provider = 'twitter') {
-          $rootScope.tweets = response;
-        }
-        else if (provider = 'facebook') {
-          $rootScope.posts =  response;
-        }
-        else if (provider = 'instagram') {
-          $rootScope.photos = response
-        }
+        });
+        $rootScope.tweets = response;
         $rootScope.$apply();
+        return $rootScope.tweets;
+      }
+      else if ( provider === 'facebook') {
+        response.data.forEach(function(message){
+          message.provider = provider
+        });
+        $rootScope.posts = response.data;
+        $rootScope.$apply();
+        return $rootScope.posts;
+      }
+      else if (provider === 'instagram') {
+        response.data.forEach(function(message){
+          message.provider = provider
+        });
+        $rootScope.photos = response.data;
+        $rootScope.$apply();
+        return $rootScope.photos;
+      }
       })
       .fail(function (err) {
         console.log(err)
-      })
+      });
     })
     .fail(function (err) {
       console.log(err)
     });
   }
-}])
+
+  this.postMessage = function(provider, route, field) {
+    OAuth.popup(provider, {cache: true})
+    .done(function(result) {
+      result.post(route, {
+        data: {
+          status: field,
+          message: field
+        }
+      })
+      .done(function (response) {
+        
+      })
+      .fail(function (err) {
+        console.log(err)
+      });
+    })
+    .fail(function (err) {
+      console.log(err)
+    });
+  }
+}]);
