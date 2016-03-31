@@ -12,7 +12,7 @@ module.exports = function(config){
       'app/app.js',
       'app/controllers/*.js',
       'app/view*/**/*.js',
-      'unit/*.js'
+      'tests/unit/*.js'
     ],
 
     autoWatch : true,

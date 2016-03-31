@@ -5,22 +5,7 @@ socialDashboard.controller('TwitterController', [ '$scope','ENV','AuthService', 
   }
 
   $scope.getTweets = function() {
-    OAuth.popup('twitter', {cache: true})
-    .done(function(result) {
-      result.get('/1.1/statuses/home_timeline.json')
-      .done(function (response) {
-        response.forEach(function(tweet) {
-          tweet.provider = 'Twitter'
-        })
-        $scope.tweets = response;
-        $scope.$apply();
-      })
-      .fail(function (err) {
-        console.log(err)
-      })
-    })
-    .fail(function (err) {
-    });
+    AuthService.getMessages('twitter','/1.1/statuses/home_timeline.json')
   }
 
   $scope.postTweets = function(field) {
