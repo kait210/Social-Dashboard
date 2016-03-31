@@ -9,8 +9,9 @@
   <title>Social Dashboard</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="bower_components/foundation-apps/dist/css/foundation-apps.css" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
   <script src="bower_components/oauth-js/dist/oauth.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
@@ -21,12 +22,18 @@
   <script src="controllers/instagram_controller.js"></script>
 </head>
 <body>
-  <div ng-controller='TwitterController'>
-    <p id='alertMessage'>{{alertMessage}}</p>
-    <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
-    <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
 
-    <form id="tweet_form" ng-submit="postTweets(field)">
+<div class="primary title-bar"><div class="center title">babbledash</div></div>
+
+<main class="grid-block">
+  <div class="grid-block" ng-controller='TwitterController'>
+    <p id='alertMessage'>{{alertMessage}}</p>
+    <i class="fa fa-twitter fa-5x"></i>
+
+    <a href='#' class="large-block-grid" id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
+    <a href='#' class="large-block-grid" id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
+    <form id="tweet_form" class="large-block-grid" ng-submit="postTweets(field)">
+    
       <label for "Tweet">Tweet: </label>
       <input id="post-tweet" type="text" name="field" ng-model="field"> </input>
       <input id="post-tweet-submit" type="submit" value='Tweet'></input>
@@ -44,8 +51,9 @@
     </ul>
   </div>
 
-  <div ng-controller='FacebookController'>
+  <div class="grid-block" ng-controller='FacebookController'>
     <p id='fb-alertMessage'>{{alertMessage}}</p>
+    <i class="fa fa-facebook-official fa-5x"></i>
     <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
 
     <form id="status_form" ng-submit="postStatus(post)">
@@ -65,8 +73,9 @@
     </ul>
   </div>
 
-  <div ng-controller='InstagramController'>
+  <div class="grid-block" ng-controller='InstagramController'>
     <p id='ig-alertMessage'>{{alertMessage}}</p>
+    <i class="fa fa-instagram fa-5x"></i>
     <a href='#' id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
     <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
     <ul id='post-list'>
@@ -77,5 +86,6 @@
       </li>
     </ul>
   </div>
+</main>
 </body>
 </html>
