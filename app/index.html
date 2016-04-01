@@ -54,11 +54,11 @@
     </div>
 
     <div class="column" ng-controller='InstagramController'>
-    <div class="full">
-      <a href='#' class="button" id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
-      <a href='#' class="button" id='get-photos' ng-click='getPhotos()'>Get Photos</a>
-    </div>
-      <ul id='post-list'>
+      <div class="full">
+        <a href='#' class="button" id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
+        <a href='#' class="button" id='get-photos' ng-click='getPhotos()'>Get Photos</a>
+      </div>
+      <ul id='post-list-padded'>
         <li ng-repeat="photo in photos" id="{{photo.id}}">
           <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
           <h5 class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}<i class="fa fa-instagram fa-2x"></i></h5>

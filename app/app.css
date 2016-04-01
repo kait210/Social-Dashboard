@@ -3,40 +3,21 @@ body {
   font-family: "Raleway";
 }
 
-header {
-  color:mediumspringgreen;
-}
-
-.top-bar {
-  background: black;
-  font-size: 2.5em;
-  text-align: center;
-}
-
-.row {
-}
-
-div {
-}
-
 div.fullwidth {
   display:block;
   width: 100%;
   text-align: center;
 }
 
+header {
+  color:mediumspringgreen;
+}
 
 i {
   color:#2199e8;
   text-align: center;
   float:right;
   vertical-align: baseline;
-}
-
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 li {
@@ -49,10 +30,6 @@ li {
   margin-bottom: 10px
 }
 
-.hidden {
-  display: none;
-}
-
 .button {
   color:white;
   background:mediumaquamarine;
@@ -61,14 +38,24 @@ li {
   font-weight: bolder;
 }
 
-#post-list {
-  padding-top: 56px;
+.fa-instagram {
+  color: rgba(0, 0, 0, 0.69);
+}
+
+.hidden {
+  display: none;
+}
+
+.top-bar {
+  background: black;
+  font-size: 2.5em;
+  text-align: center;
 }
 
 #alertMessage {
   text-align: center;
 }
 
-.fa-instagram {
-  color: rgba(0, 0, 0, 0.69);
+#post-list-padded {
+  padding-top: 56px;
 }
