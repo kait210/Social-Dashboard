@@ -5,6 +5,6 @@ socialDashboard.controller('InstagramController', [ '$scope','ENV', 'AuthService
   }
 
   $scope.getPhotos = function() {
-    AuthService.getMessages('instagram','/v1/users/self/media/recent')
+    AuthService.getMessages('instagram','/v1/users/self/media/recent');
   }
 }]);

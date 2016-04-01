@@ -4,11 +4,11 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
     OAuth.initialize(ENV.oauthKey);
     OAuth.popup(provider)
     .done(function(result) {
-      $rootScope.alertMessage = provider + ' authentication successful!'
+      $rootScope.alertMessage = provider + ' authentication successful!';
       $rootScope.$apply();
     })
     .fail(function (err) {
-      $rootScope.alertMessage = provider + ' authentication unsuccessful!'
+      $rootScope.alertMessage = provider + ' authentication unsuccessful!';
       $rootScope.$apply();
     });
     return $rootScope.alertMessage;
@@ -21,7 +21,7 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
       .done(function (response) {
         if (provider === 'twitter') {
           response.forEach(function(message){
-            message.provider = provider
+            message.provider = provider;
           });
           $rootScope.tweets = response;
           $rootScope.$apply();
@@ -29,7 +29,7 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
         }
         else if ( provider === 'facebook') {
           response.data.forEach(function(message){
-            message.provider = provider
+            message.provider = provider;
           });
           $rootScope.posts = response.data;
           $rootScope.$apply();
@@ -37,7 +37,7 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
         }
         else if (provider === 'instagram') {
           response.data.forEach(function(message){
-            message.provider = provider
+            message.provider = provider;
           });
           $rootScope.photos = response.data;
           $rootScope.$apply();
@@ -45,11 +45,11 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
         }
       })
       .fail(function (err) {
-        console.log(err)
+        console.log(err);
       });
     })
     .fail(function (err) {
-      console.log(err)
+      console.log(err);
     });
     return $rootScope.tweets;
   }
@@ -64,11 +64,11 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
         }
       })
       .fail(function (err) {
-        console.log(err)
+        console.log(err);
       });
     })
     .fail(function (err) {
-      console.log(err)
+      console.log(err);
     });
   }
 }]);

@@ -1,6 +1,6 @@
 describe('SocialDashboard controllers', function() {
 
-  describe('FacebookController', function(){
+  describe('FacebookController', function() {
     var scope, ctrl, AuthService;
 
     beforeEach(module('socialDashboard'));
@@ -8,7 +8,7 @@ describe('SocialDashboard controllers', function() {
     beforeEach(inject(function($controller, _AuthService_) {
       AuthService = _AuthService_;
       scope = {};
-      ctrl = $controller('FacebookController', {$scope:scope})
+      ctrl = $controller('FacebookController', {$scope:scope});
     }));
 
     it('should authorize Facebook account', function() {
@@ -22,7 +22,7 @@ describe('SocialDashboard controllers', function() {
       spyOn(AuthService, "getMessages").and.returnValue('[{id:1231233, name:dashboard, message: hello!}]');
       expect(scope.posts).toBe(undefined);
       scope.getPosts();
-      expect(scope.posts).toBe('[{id:1231233, name:dashboard, message: hello!}]')
+      expect(scope.posts).toBe('[{id:1231233, name:dashboard, message: hello!}]');
     });
 
     it('should post a status to Facebook', function() {

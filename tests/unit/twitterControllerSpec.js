@@ -1,6 +1,6 @@
 describe('SocialDashboard controllers', function() {
 
-  describe('TwitterController', function(){
+  describe('TwitterController', function() {
     var scope, ctrl, AuthService;
 
     beforeEach(module('socialDashboard'));
@@ -8,7 +8,7 @@ describe('SocialDashboard controllers', function() {
     beforeEach(inject(function($controller, _AuthService_) {
       AuthService = _AuthService_;
       scope = {};
-      ctrl = $controller('TwitterController', {$scope:scope})
+      ctrl = $controller('TwitterController', {$scope:scope});
     }));
 
     it('should authorize Twitter account', function() {
@@ -22,7 +22,7 @@ describe('SocialDashboard controllers', function() {
       spyOn(AuthService, "getMessages").and.returnValue('[{id:1231233, name:dashboard, message: hello!}]');
       expect(scope.tweets).toBe(undefined);
       scope.getTweets();
-      expect(scope.tweets).toBe('[{id:1231233, name:dashboard, message: hello!}]')
+      expect(scope.tweets).toBe('[{id:1231233, name:dashboard, message: hello!}]');
     });
 
     it('should post a tweet to Twitter', function() {
