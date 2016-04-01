@@ -1,9 +1,10 @@
 body {
-  background: lightgray;
+  background: whitesmoke;
+  font-family: "Raleway";
 }
 
 header {
-  color:lightgreen;
+  color:mediumspringgreen;
 }
 
 .top-bar {
@@ -13,11 +14,9 @@ header {
 }
 
 .row {
-  background: lightgray;
 }
 
 div {
-  background: lightgray;
 }
 
 div.fullwidth {
@@ -28,9 +27,10 @@ div.fullwidth {
 
 
 i {
-  color:lightgreen;
+  color:#2199e8;
   text-align: center;
-  display: block;
+  float:right;
+  vertical-align: baseline;
 }
 
 *, *:after, *:before {
@@ -41,12 +41,34 @@ i {
 
 li {
   font-size: inherit;
-    background: white;
-    /* background: lightgray; */
-    padding: 20px;
-    border: black 2px solid;
-    list-style: none;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    margin-bottom: 10px
-  }
+  background: white;
+  padding: 20px;
+  list-style: none;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  color:white;
+  background:mediumaquamarine;
+  opacity: .9;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+#post-list {
+  padding-top: 56px;
+}
+
+#alertMessage {
+  text-align: center;
+}
+
+.fa-instagram {
+  color: rgba(0, 0, 0, 0.69);
+}
