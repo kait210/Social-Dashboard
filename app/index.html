@@ -16,13 +16,14 @@
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>
+  <script src="services.js"></script>
   <script src="controllers/twitter_controller.js"></script>
   <script src="controllers/facebook_controller.js"></script>
   <script src="controllers/instagram_controller.js"></script>
 </head>
 <body>
+  <p id='alertMessage'>{{alertMessage}}</p>
   <div ng-controller='TwitterController'>
-    <p id='alertMessage'>{{alertMessage}}</p>
     <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
     <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
 
@@ -45,12 +46,11 @@
   </div>
 
   <div ng-controller='FacebookController'>
-    <p id='fb-alertMessage'>{{alertMessage}}</p>
     <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
 
-    <form id="status_form" ng-submit="postStatus(post)">
+    <form id="status_form" ng-submit="postStatus(field)">
       <label for "Status">Status: </label>
-      <input id="post-status" type="text" name="field" ng-model="post"> </input>
+      <input id="post-status" type="text" name="field" ng-model="field"> </input>
       <input id="post-status-submit" type="submit" value='Post'></input>
     </form>
     <a href='#' id='get-posts' ng-click='getPosts()'>Get my FB Posts</a>
@@ -66,7 +66,6 @@
   </div>
 
   <div ng-controller='InstagramController'>
-    <p id='ig-alertMessage'>{{alertMessage}}</p>
     <a href='#' id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
     <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
     <ul id='post-list'>
