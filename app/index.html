@@ -9,7 +9,9 @@
   <title>Social Dashboard</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css">
+  <link href="//fonts.googleapis.com/css?family=Raleway&subset=latin" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/oauth-js/dist/oauth.js"></script>
   <script src="bower_components/angular/angular.js"></script>
@@ -22,59 +24,66 @@
   <script src="controllers/instagram_controller.js"></script>
 </head>
 <body>
-  <p id='alertMessage'>{{alertMessage}}</p>
-  <div ng-controller='TwitterController'>
-    <a href='#' id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
-    <a href='#' id='get-tweets' ng-click='getTweets()'>Get my Tweets</a>
+  <header>
+    <div class="top-bar">babbledash</div>
+  </header>
+  <main class="row small-up-1 medium-up-3">
+    <h6 id='alertMessage'>{{alertMessage}}</h6>
 
-    <form id="tweet_form" ng-submit="postTweets(field)">
-      <label for "Tweet">Tweet: </label>
-      <input id="post-tweet" type="text" name="field" ng-model="field"> </input>
-      <input id="post-tweet-submit" type="submit" value='Tweet'></input>
-    </form>
+    <div class="column" ng-controller='TwitterController'>
+      <div class='full'>
+        <a href='#' class="button" id='twitter-auth' ng-click='twitterAuth()'>Log-in with Twitter</a>
+        <a href='#' class="button" id='get-tweets' ng-click='getTweets()'>Get Tweets</a>
+      </div>
 
-    <ul id='tweet-list'>
-      <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
-        <p class='created-at'>{{tweet.created_at}}</p>
-        <p class="tweet-display">{{tweet.text}}</p>
-        <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
-        <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
-        <p class='user' ng-if="tweet.user.name">{{tweet.user.name}}</p>
-        <p class="tweet-provider">Provided by {{tweet.provider}}</p>
-      </li>
-    </ul>
-  </div>
+      <form id="tweet_form" ng-submit="postTweets(field)">
+        <input id="post-tweet" type="text" placeholder="Tweet your thoughts..." name="field" ng-model="field"/>
+        <input id="post-tweet-submit" class="hidden" type="submit" value='Tweet'/>
+      </form>
 
-  <div ng-controller='FacebookController'>
-    <a href='#' id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
+      <ul id='tweet-list'>
+        <li ng-repeat="tweet in tweets" id="{{tweet.id}}">
 
-    <form id="status_form" ng-submit="postStatus(field)">
-      <label for "Status">Status: </label>
-      <input id="post-status" type="text" name="field" ng-model="field"> </input>
-      <input id="post-status-submit" type="submit" value='Post'></input>
-    </form>
-    <a href='#' id='get-posts' ng-click='getPosts()'>Get my FB Posts</a>
+          <h5 class='user' ng-if="tweet.user.name">{{tweet.user.name}}</h5>
+          <p class="tweet-display">{{tweet.text}}</p>
+          <a class='url' ng-if="tweet.entities.urls[0].url" href="{{tweet.entities.urls[0].url}}">Click link</a>
+          <div> <img class='media' ng-if="tweet.entities.media[0].media_url_https" ng-src="{{tweet.entities.media[0].media_url_https}}"></div>
+          <h6 class='created-at'>{{tweet.created_at}}<i class="fa fa-twitter fa-2x"></i></h6>
+        </li>
+      </ul>
+    </div>
 
-    <ul id='post-list'>
-      <li ng-repeat="post in posts" id="{{post.id}}">
-        <p class='created-at'>{{post.created_time}}</p>
-        <p class="post-display">{{post.message}}</p>
-        <p class="post-provider">Provided by {{post.provider}}</p>
-        <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a>
-      </li>
-    </ul>
-  </div>
+    <div class="column" ng-controller='InstagramController'>
+      <div class="full">
+        <a href='#' class="button" id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
+        <a href='#' class="button" id='get-photos' ng-click='getPhotos()'>Get Photos</a>
+      </div>
+      <ul id='post-list-padded'>
+        <li ng-repeat="photo in photos" id="{{photo.id}}">
+          <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
+          <h5 class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}<i class="fa fa-instagram fa-2x"></i></h5>
+        </li>
+      </ul>
+    </div>
 
-  <div ng-controller='InstagramController'>
-    <a href='#' id='instagram-auth' ng-click='instagramAuth()'>Log-in with Instagram</a>
-    <a href='#' id='get-photos' ng-click='getPhotos()'>Get my Photos</a>
-    <ul id='post-list'>
-      <li ng-repeat="photo in photos" id="{{photo.id}}">
-        <img class="photo-display" ng-src="{{photo.images.standard_resolution.url}}">
-        <p class='user' ng-if="photo.user.full_name">{{photo.user.full_name}}</p>
-        <p class="photo-provider">Provided by {{photo.provider}}</p>
-      </li>
-    </ul>
-  </div>
+    <div class="column" ng-controller='FacebookController'>
+      <div class='full'>
+        <a href='#' class="button" id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
+        <a href='#' class="button" id='get-posts' ng-click='getPosts()'>Get Posts</a>
+      </div>
+      <form id="status_form" ng-submit="postStatus(post)">
+        <input id="post-status" type="text" name="field" placeholder="Update your status..." ng-model="field"> </input>
+        <input id="post-status-submit" class="hidden" type="submit" value='Post'></input>
+      </form>
+
+      <ul id='post-list'>
+        <li ng-repeat="post in posts" id="{{post.id}}">
+          <p class="post-display">{{post.message}}</p>
+          <a class='url' ng-if="post.entities.urls[0].url" href="{{post.entities.urls[0].url}}">Click link</a>
+          <h6 class='created-at'>{{post.created_time}}<i class="fa fa-facebook-official fa-2x"></i></h6>
+        </li>
+      </ul>
+    </div>
+  </main>
 </body>
 </html>
