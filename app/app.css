@@ -1,0 +1,52 @@
+body {
+  background: lightgray;
+}
+
+header {
+  color:lightgreen;
+}
+
+.top-bar {
+  background: black;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.row {
+  background: lightgray;
+}
+
+div {
+  background: lightgray;
+}
+
+div.fullwidth {
+  display:block;
+  width: 100%;
+  text-align: center;
+}
+
+
+i {
+  color:lightgreen;
+  text-align: center;
+  display: block;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+li {
+  font-size: inherit;
+    background: white;
+    /* background: lightgray; */
+    padding: 20px;
+    border: black 2px solid;
+    list-style: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px
+  }
