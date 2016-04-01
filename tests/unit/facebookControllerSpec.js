@@ -24,5 +24,11 @@ describe('SocialDashboard controllers', function() {
       scope.getPosts();
       expect(scope.posts).toBe('[{id:1231233, name:dashboard, message: hello!}]')
     });
+
+    it('should post a status to Facebook', function() {
+      spyOn(AuthService, "postMessage");
+      scope.postStatus();
+      expect(AuthService.postMessage).toHaveBeenCalled();
+    });
   });
 });

@@ -5,12 +5,13 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
     OAuth.popup(provider)
     .done(function(result) {
       $rootScope.alertMessage = provider + ' authentication successful!'
-      $rootScope.$apply()
+      $rootScope.$apply();
     })
     .fail(function (err) {
-      $scope.alertMessage = provider + ' authentication unsuccessful!'
+      $rootScope.alertMessage = provider + ' authentication unsuccessful!'
+      $rootScope.$apply();
     });
-    return $rootScope.alertMessage
+    return $rootScope.alertMessage;
   }
 
   this.getMessages = function(provider, route) {
@@ -18,30 +19,30 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
     .done(function(result) {
       result.get(route)
       .done(function (response) {
-      if (provider === 'twitter') {
-        response.forEach(function(message){
-          message.provider = provider
-        });
-        $rootScope.tweets = response;
-        $rootScope.$apply();
-        return $rootScope.tweets;
-      }
-      else if ( provider === 'facebook') {
-        response.data.forEach(function(message){
-          message.provider = provider
-        });
-        $rootScope.posts = response.data;
-        $rootScope.$apply();
-        return $rootScope.posts;
-      }
-      else if (provider === 'instagram') {
-        response.data.forEach(function(message){
-          message.provider = provider
-        });
-        $rootScope.photos = response.data;
-        $rootScope.$apply();
-        return $rootScope.photos;
-      }
+        if (provider === 'twitter') {
+          response.forEach(function(message){
+            message.provider = provider
+          });
+          $rootScope.tweets = response;
+          $rootScope.$apply();
+          return $rootScope.tweets;
+        }
+        else if ( provider === 'facebook') {
+          response.data.forEach(function(message){
+            message.provider = provider
+          });
+          $rootScope.posts = response.data;
+          $rootScope.$apply();
+          return $rootScope.posts;
+        }
+        else if (provider === 'instagram') {
+          response.data.forEach(function(message){
+            message.provider = provider
+          });
+          $rootScope.photos = response.data;
+          $rootScope.$apply();
+          return $rootScope.photos;
+        }
       })
       .fail(function (err) {
         console.log(err)
@@ -50,6 +51,7 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
     .fail(function (err) {
       console.log(err)
     });
+    return $rootScope.tweets;
   }
 
   this.postMessage = function(provider, route, field) {
@@ -60,9 +62,6 @@ socialDashboard.service('AuthService', ['$rootScope','ENV', function($rootScope,
           status: field,
           message: field
         }
-      })
-      .done(function (response) {
-        
       })
       .fail(function (err) {
         console.log(err)

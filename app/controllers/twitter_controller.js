@@ -5,10 +5,10 @@ socialDashboard.controller('TwitterController', [ '$scope','ENV','AuthService', 
   }
 
   $scope.getTweets = function() {
-   AuthService.getMessages('twitter','/1.1/statuses/home_timeline.json');
-  }
+    AuthService.getMessages('twitter','/1.1/statuses/home_timeline.json');
+   }
 
   $scope.postTweets = function(field) {
-   AuthService.postMessage('twitter', '/1.1/statuses/update.json', field);
+    AuthService.postMessage('twitter', '/1.1/statuses/update.json', field);
   }
 }]);

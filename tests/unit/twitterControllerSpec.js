@@ -24,5 +24,11 @@ describe('SocialDashboard controllers', function() {
       scope.getTweets();
       expect(scope.tweets).toBe('[{id:1231233, name:dashboard, message: hello!}]')
     });
+
+    it('should post a tweet to Twitter', function() {
+      spyOn(AuthService, "postMessage");
+      scope.postTweets();
+      expect(AuthService.postMessage).toHaveBeenCalled();
+    })
   });
 });
