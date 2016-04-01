@@ -71,7 +71,7 @@
         <a href='#' class="button" id='facebook-auth' ng-click='facebookAuth()'>Log-in with Facebook</a>
         <a href='#' class="button" id='get-posts' ng-click='getPosts()'>Get Posts</a>
       </div>
-      <form id="status_form" ng-submit="postStatus(post)">
+      <form id="status_form" ng-submit="postStatus(field)">
         <input id="post-status" type="text" name="field" placeholder="Update your status..." ng-model="field"> </input>
         <input id="post-status-submit" class="hidden" type="submit" value='Post'></input>
       </form>
